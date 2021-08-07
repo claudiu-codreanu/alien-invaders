@@ -8,4 +8,4 @@ HTML5 canvas-based implementation of the popular game Alien Invaders.
 <br>
 
 By the way, this was a ridiculously fun challenge.  
-I don’t know what I've enjoyed more – building the game, or playing the game :smirk:
+I don’t know what I've enjoyed more – building the game, or playing the game 😎
