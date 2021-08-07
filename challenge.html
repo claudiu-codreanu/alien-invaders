@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8">
+    <title>Challenge</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <main>
+        <h1>Challenge</h1>
+
+        <div class="credit">Proposed by Marian Veteanu</div>
+
+        <p>
+            We are changing the pace of our coding challenges a little bit by entering the realm of video games. And as
+            you can probably hint, this new challenge is all about creating a video game.
+            Now is a good time to join kids and also act on this advice from president <a
+                href="https://www.gamesbrief.com/2013/12/dont-just-buy-a-new-video-game-make-one-says-obama/"
+                target="_blank">Obama</a>: <cite>"Don't just buy a new video game, make one!"</cite>
+        </p>
+
+        <p>
+            In this coding challenge you take the role of a young bedroom coder that strives to implement a clone of
+            (perhaps) the most influential game of all time: <a href="https://en.wikipedia.org/wiki/Space_Invaders"
+                target="_blank">"Space Invaders"</a>.
+            You played this game thousand of times at the mall arcade, and now you want to build your special version
+            that you can share with your friends via the big world wide web.
+        </p>
+
+        <p>
+            Therefore you plan to write your game using JavaScript and HTML5 canvas!
+        </p>
+
+        <p>
+            Of course you plan to write a simplified version of the game. In your game a fleet of unidentified vessels
+            are moving on the screen left and right … then slowly go down one step before changing direction.
+            You need to destroy these vessels before they land using plasma bullets (see below). If you destroy all the
+            vessels – you win. If they land – you lose. In either case, the game restarts and gives the player a new
+            try.
+        </p>
+
+        <h3>How to work with the canvas?</h3>
+
+        <p>
+            Don’t worry – it is not difficult as this challenge comes with "training wheels": in order to eliminate the
+            intricacies of HTML5 canvas and therefore be able to focus only on the game, a tiny "pseudo-library" is
+            provided to you as starting point.
+        </p>
+
+        <p>
+            The library implements a rudimentary game loop, together with a few other helper functions. The library API
+            is inspired by the Processing API and in particular <a href="https://p5js.org/" target="_blank">p5.js</a>.
+        </p>
+
+        <p>
+            To use the library you either (1) copy it’s entire body in your code before the code you plan to write, or
+            (2) save it in a .js file and include it in your HTML page before the code you plan to write as this:
+        </p>
+
+        <div class="code">
+            &lt;canvas id="canvas" tabindex="1" width="800" height="600"&gt;&lt;/canvas&gt;
+            <br>
+            <br>
+            &lt;script src="easycanvas.js"&gt;&lt;/script&gt;
+            <br>
+            <br>
+            &lt;script&gt;
+            <br>
+            <br>
+            // Copy the library code here (if you don’t include the above script). Either way, works great!
+            <br>
+            // Then ... write your game code here, after the helper functions!!!
+            <br>
+            <br>
+            &lt;/script&gt;
+        </div>
+
+        <p>
+            <b>*** Note</b>: The code of easyCanvas is provided in the attached text file.
+        </p>
+
+        <h3>What's inside easyCanvas?</h3>
+
+        <p>
+            There is no better way to see what’s inside easyCanvas than to inspect the code yourself. At a glance, after
+            instantiation, easyCanvas populates the global space (e.g. window object) with a few helper constants and
+            functions. You only need to use these to build your game!
+        </p>
+
+        <p>
+            Don’t even try to access the canvas directly… these functions are all you need for this game.
+        </p>
+
+        <div class="code">
+            // Clear the canvas with the specified color<br>
+            function background(color)<br>
+            <br>
+            // Specify that the next shape won't be filled<br>
+            function noFill()<br>
+            <br>
+            // Specify that the next shaped should be filled with specified color<br>
+            function fill(color)<br>
+            <br>
+            // Specify that the next shape should not have a stroke stroke<br>
+            function noStroke()<br>
+            <br>
+            // Specify the stroke width for the next shape<br>
+            function strokeWidth(n)<br>
+            <br>
+            // Specify the stroke color for the next shape<br>
+            function stroke(color)<br>
+            <br>
+            // Draw a rectangle<br>
+            function rect(x, y, width, height)<br>
+            <br>
+            // Specify the text size of the next drawn text<br>
+            function textSize(n)<br>
+            <br>
+            // Write a text at specified coordinates<br>
+            function text(txt, x, y)<br>
+            <br>
+            // Returns true if key with specified code is pressed<br>
+            function keyIsDown(code)<br>
+        </div>
+
+        <h3>What about the game loop?</h3>
+
+        <p>
+            Did you pay attention to the statements above? For the implementation of your game you need to use the "game
+            loop pattern".
+        </p>
+
+        <p>
+            Robert Nystrom compares the game loop with the <cite>"best thing since slide bread"</cite>.
+            He also explains <a href="https://gameprogrammingpatterns.com/game-loop.html" target="_blank">what it
+                is</a>: <cite>"A game loop runs continuously during gameplay. Each turn of the loop, it processes user
+                input without blocking, updates the game state, and renders the game."</cite>
+        </p>
+
+        Sounds fancy? … don’t be discouraged. All you have to do is to write your logic inside the “loop” function and
+        the easyCanvas “library” will call your function in a loop.
+
+        <h3>More hints, please!</h3>
+
+        <p>
+            OK … one more hint and now you should be ready to start working on the game.
+        </p>
+
+        <p>
+            Before you start working on the game, try to run and understand the following code.
+            The code shows how to implement the main mechanics of your game:
+        </p>
+
+        <div class="code">
+            &lt;canvas id="canvas" tabindex="1" width="800" height="600"&gt;&lt;/canvas&gt;<br>
+            <br>
+            &lt;script src="easycanvas.js"&gt;&lt;/script&gt;<br>
+            <br>
+            &lt;script&gt;<br>
+            <br>
+            // Note: Include the code of easyCanvas here if you don't include the above script<br>
+            <br>
+            // ===============<br>
+            // BEGIN USER CODE<br>
+            // ===============<br>
+            <br>
+            var xObject = 0;<br>
+            var xPaddle = width / 2;<br>
+            <br>
+            textSize(12);<br>
+            <br>
+            // This function gets called automatically in a `loop` by the `engine`<br>
+            function loop() {<br>
+            <div class="indent">
+                // Clear the canvas<br>
+                background("black");<br>
+                <br>
+                // Draw the moving object<br>
+                noFill();<br>
+                strokeWidth(2);<br>
+                stroke("white");<br>
+                rect(xObject, 10, 30, 30);<br>
+                <br>
+                // Draw the paddle<br>
+                fill("red");<br>
+                noStroke();<br>
+                rect(xPaddle, height - 50, 100, 30);<br>
+                <br>
+                // Display text<br>
+                fill("white");<br>
+                text("Use LEFT and RIGHT arrows to move", 10, 580);<br>
+                <br>
+                // Update object position<br>
+                xObject++;<br>
+                <br>
+                // Update paddle on key press<br>
+                if (keyIsDown(RIGHT_ARROW)) {<br>
+                <span class="indent">xPaddle += 3;</span><br>
+                }<br>
+                else if (keyIsDown(LEFT_ARROW)) {<br>
+                <span class="indent">xPaddle -= 3;</span><br>
+                }<br>
+                else if (keyIsDown(SPACE)) {<br>
+                <span class="indent">// place shooting code here...</span><br>
+                }<br>
+            </div>
+            }<br>
+            <br>
+            &lt;/script&gt;
+        </div>
+
+        <h3>Bonus points</h3>
+
+        <p>
+            Try to get extra points in this game jam competition also do the following in your game:
+        </p>
+
+        <ul>
+            <li>Separate the update logic from display logic inside your game loop</li>
+            <li>Decorate the enemy vessels and your vessels in the most creative way possible (using of course only the
+                rect function)</li>
+            <li>Make the stars move</li>
+            <li>Improve the game to wow the players!</li>
+        </ul>
+
+        <p>
+            <b>Note:</b> After you finish the coding, show the game to your kids or family… See what they think about
+            it! Seek their opinion on how to improve the game mechanics or graphics!
+        </p>
+
+    </main>
+
+</body>
+
+</html>
